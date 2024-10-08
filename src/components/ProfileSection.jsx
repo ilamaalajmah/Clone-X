@@ -134,7 +134,7 @@ function ProfileSection() {
         open={showMediaModel}
       >
         <div className="modal-box">
-          <h3 className="font-bold text-2xl text-primary">Update Avatar</h3>
+          <h3 className="font-bold text-2xl text-primary">تحديث الصورة</h3>
           <div className="avatar flex-col justify-center items-center gap-5 max-md:max-w-screen w-full my-3">
             <div className="w-[360px] h-[360px] max-md:w-full max-md:h-auto flex justify-center items-center flex-col">
               <img
@@ -145,7 +145,7 @@ function ProfileSection() {
             </div>
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">Add image</span>
+                <span className="label-text">إضافة صورة</span>
               </div>
               <input
                 type="url"
@@ -159,10 +159,10 @@ function ProfileSection() {
           <div className="modal-action">
             <div className="flex gap-5">
               <button className="btn" onClick={() => setShowMediaModel(false)}>
-                Cancel
+                إلغاء
               </button>
               <button onClick={changeImage} className="btn btn-primary">
-                Edit
+                تعديل
               </button>
             </div>
           </div>
@@ -185,13 +185,13 @@ function ProfileSection() {
                   <span className="font-bold text-white">
                     {user.following.length}
                   </span>{' '}
-                  Following
+                  متابع
                 </p>
                 <p className="text-gray-400">
                   <span className="font-bold text-white">
                     {user.followers.length}
                   </span>{' '}
-                  Followers
+                  المتابعون
                 </p>
               </div>
             </div>
@@ -201,7 +201,7 @@ function ProfileSection() {
               }}
               className="ml-auto bg-blue-500 text-white px-4 py-2 rounded-full"
             >
-              Edit avatar
+              تعديل الملف الشخصي
             </button>
           </div>
           <div className="flex  mt-4">
@@ -209,35 +209,35 @@ function ProfileSection() {
               className={`py-2 px-4  border-b-2 ${
                 selectedTab === 'posts'
                   ? ' border-b border-b-blue-400 text-blue-400'
-                  : 'hover:bg-dim-200 text-white border-b'
+                  : ' text-white border-b'
               }`}
               onClick={() => setSelectedTab('posts')}
             >
-              Posts
+              التغريدات
             </button>
             <button
               className={`py-2 px-4  border-b-2 ${
                 selectedTab === 'reposts'
                   ? ' border-b border-b-blue-400 text-blue-400'
-                  : 'hover:bg-dim-200 text-white border-b'
+                  : ' text-white border-b'
               }`}
               onClick={() => setSelectedTab('reposts')}
             >
-              Reposts
+              إعادة التغريدات
             </button>
             <button
               className={`py-2 px-4  border-b-2 ${
                 selectedTab === 'likes'
                   ? ' border-b border-b-blue-400 text-blue-400'
-                  : 'hover:bg-dim-200 text-white border-b'
+                  : ' text-white border-b'
               }`}
               onClick={() => setSelectedTab('likes')}
             >
-              Likes
+              الإعجابات
             </button>
             <div className="flex justify-center items-center flex-1 flex-row-reverse md:hidden">
               <Link
-                className="flex gap-1 justify-center items-center hover:bg-dim-200 pe-1 py-1 rounded"
+                className="flex gap-1 justify-center items-center  pe-1 py-1 rounded"
                 onClick={() => {
                   localStorage.clear();
                   navigate('../');
@@ -245,7 +245,7 @@ function ProfileSection() {
               >
                 <svg
                   fill="red"
-                  className="w-5 h-5 ml-3 hover:fill-red-500"
+                  className="w-5 h-5 ml-3 "
                   version="1.1"
                   id="Capa_1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +268,7 @@ function ProfileSection() {
                     </g>
                   </g>
                 </svg>
-                Log out
+                تسجيل الخروج
               </Link>
             </div>
           </div>

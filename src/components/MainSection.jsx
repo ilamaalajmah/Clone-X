@@ -194,7 +194,7 @@ function MainSection() {
           open={showMediaModel}
         >
           <div className="modal-box">
-            <h3 className="font-bold text-2xl text-primary">Add image</h3>
+            <h3 className="font-bold text-2xl text-primary">أضف صورة</h3>
             <div className="avatar flex-col justify-center items-center gap-5 max-md:max-w-screen w-full my-3">
               <div className="w-[360px] h-[360px] max-md:w-full max-md:h-auto flex justify-center items-center flex-col">
                 <img
@@ -205,7 +205,7 @@ function MainSection() {
               </div>
               <label className="form-control w-full max-w-xs">
                 <div className="label">
-                  <span className="label-text">Add image</span>
+                  <span className="label-text">أضف صورة</span>
                 </div>
                 <input
                   type="url"
@@ -222,10 +222,10 @@ function MainSection() {
                   className="btn"
                   onClick={() => setShowMediaModel(false)}
                 >
-                  Cancel
+                  إلغاء
                 </button>
                 <button onClick={changeImage} className="btn btn-primary">
-                  Add
+                  أضف
                 </button>
               </div>
             </div>
@@ -269,13 +269,11 @@ function MainSection() {
             onClick={handleAddPost}
             className="font-bold bg-blue-400 text-white rounded-full px-6 ml-auto mr-1 flex items-center"
           >
-            Post
+            نشر
           </button>
         </div>
       </div>
-      <div className="text-center py-4 bg-dim-900 border border-dim-200 cursor-pointer text-blue-400 text-sm">
-        Show more posts
-      </div>
+    
 
       {allPosts.map((item, index) => (
         <MessageCard

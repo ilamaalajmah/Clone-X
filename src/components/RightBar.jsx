@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function RightBar() {
@@ -22,13 +22,12 @@ function RightBar() {
         setUsers(allUsers.filter((user) => user.id !== userId)); 
       })
       .catch((error) => {
-        console.error('Error fetching users:', error);
+        console.error('خطأ في جلب المستخدمين:', error);
       });
   };
 
   const handleFollowToggle = (id) => {
     if (currentUser.following.includes(id)) {
-      // Unfollow user
       axios
         .get(`${urlUsers}/${id}`)
         .then((response) => {
@@ -54,18 +53,17 @@ function RightBar() {
                   fetchUsers();
                 })
                 .catch((error) => {
-                  console.error('Error updating following:', error);
+                  console.error('خطأ في تحديث المتابعات:', error);
                 });
             })
             .catch((error) => {
-              console.error('Error updating followers:', error);
+              console.error('خطأ في تحديث المتابعين:', error);
             });
         })
         .catch((error) => {
-          console.error('Error fetching followed user:', error);
+          console.error('خطأ في جلب المستخدم المتابع:', error);
         });
     } else {
-      // Follow user
       axios
         .get(`${urlUsers}/${id}`)
         .then((response) => {
@@ -87,21 +85,21 @@ function RightBar() {
                   fetchUsers();
                 })
                 .catch((error) => {
-                  console.error('Error updating following:', error);
+                  console.error('خطأ في تحديث المتابعات:', error);
                 });
             })
             .catch((error) => {
-              console.error('Error updating followers:', error);
+              console.error('خطأ في تحديث المتابعين:', error);
             });
         })
         .catch((error) => {
-          console.error('Error fetching followed user:', error);
+          console.error('خطأ في جلب المستخدم المتابع:', error);
         });
     }
   };
 
   return (
-    <div className="hidden w-[30%] xl:block">
+    <div dir="rtl" className="hidden w-[30%] xl:block">
       <div className="relative m-2">
         <svg
           className="h-5 w-5 absolute left-4 top-1/2 -translate-y-1/2"
@@ -130,75 +128,34 @@ function RightBar() {
 
         <input
           type="text"
-          className="w-full bg-dim-400 border-dim-400 text-gray-100 focus:outline-none font-normal h-9 pl-12 text-sm rounded-full"
-          placeholder="Search Twitter"
+          className="w-full bg-dim-400 border-dim-400 text-gray-100 focus:outline-none font-normal h-9 pl-12 text-sm rounded-full text-right"
+          placeholder="ابحث في تويتر"
         />
       </div>
+
       <div className="bg-dim-700 rounded-2xl m-2">
-        <h3 className="text-white font-bold p-3 border-b border-dim-200">
-        What’s happening
+        <h3 className="text-white font-bold p-3 border-b border-dim-200 text-right">
+          ما يحدث
         </h3>
-        <div className="p-3 border-b border-dim-200">
-          <h4 className="font-bold text-white">#لا للمشاريع</h4>
-          <p className="text-xs text-gray-400">1M Posts</p>
-        </div>
-        <div className="p-3 border-b border-dim-200">
+
+        <div className="p-3 border-b border-dim-200 text-right">
           <h4 className="font-bold text-white">#فزعه الشعب السعودي</h4>
-          <p className="text-xs text-gray-400">800.1K Posts</p>
+          <p className="text-xs text-gray-400">800.1K منشور</p>
         </div>
-        <div className="p-3 border-b border-dim-200">
+        <div className="p-3 border-b border-dim-200 text-right">
           <h4 className="font-bold text-white">#الديوان الملكي</h4>
-          <p className="text-xs text-gray-400">30.5K Posts</p>
+          <p className="text-xs text-gray-400">30.5K منشور</p>
         </div>
-        <div className="p-3 border-b border-dim-200">
+        <div className="p-3 border-b border-dim-200 text-right">
           <h4 className="font-bold text-white">#الرياض الان</h4>
-          <p className="text-xs text-gray-400">22.2K Posts</p>
+          <p className="text-xs text-gray-400">22.2K منشور</p>
         </div>
-        <div className="p-3 border-b border-dim-200">
+        <div className="p-3 border-b border-dim-200 text-right">
           <h4 className="font-bold text-white">#معرض طويق لتوظيف</h4>
-          <p className="text-xs text-gray-400">10.7K Posts</p>
+          <p className="text-xs text-gray-400">10.7K منشور</p>
         </div>
-       
-        <div className="text-blue-400 p-3 cursor-pointer">Show more</div>
-      </div>
-      <div className="bg-dim-700 rounded-2xl m-2">
-        <h3 className="text-white font-bold p-3 border-b border-dim-200">
-          Who to follow
-        </h3>
-        {users.map((user) => (
-          <div
-            key={user.id}
-            className="p-5 border-b border-dim-200 flex justify-between items-center"
-          >
-            <div className="flex">
-              <img
-                className="w-10 h-10 rounded-full"
-                src={
-                  user.avatar ||
-                  'https://cdn.vectorstock.com/i/500p/53/42/user-member-avatar-face-profile-icon-vector-22965342.jpg'
-                }
-                alt={user.userName}
-              />
-              <div className="ml-2 text-sm">
-                <h5 className="text-white font-bold">{user.userName}</h5>
-                <p className="text-gray-400">@{user.accountName}</p>
-              </div>
-            </div>
-            <button
-              onClick={() => handleFollowToggle(user.id)}
-              className={`text-xs font-bold px-4 py-1 rounded-full border-2 ${
-                currentUser?.following.includes(user.id)
-                  ? 'text-gray-400 border-gray-400 hover:border-blue-400 hover:text-blue-400'
-                  : 'text-blue-400 border-blue-400 hover:border-gray-400 hover:text-gray-400'
-              }`}
-            >
-              {currentUser?.following.includes(user.id)
-                ? 'Following'
-                : 'Follow'}
-            </button>
-          </div>
-        ))}
-        <div className="text-blue-400 p-3 cursor-pointer">Show more</div>
+
+        <div className="text-blue-400 p-3 cursor-pointer text-right">عرض المزيد</div>
       </div>
     </div>
   );

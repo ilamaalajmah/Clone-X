@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -75,97 +75,60 @@ function SignUpPage() {
   return (
     <div className="container">
       <div className="flex justify-center items-center min-h-screen text-center gap-5">
-        <div className="w-[40%] max-md:hidden flex flex-row-reverse">
-          <svg
-            className="w-[60%]"
-            fill="white"
-            xmlns="http://www.w3.org/2000/svg"
-            shapeRendering="geometricPrecision"
-            textRendering="geometricPrecision"
-            imageRendering="optimizeQuality"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            viewBox="0 0 512 462.799"
-          >
-            <path
-              fillRule="nonzero"
-              d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"
-            />
-          </svg>
-        </div>
-        <div className="w-[50%] max-md:w-full flex flex-col items-center">
-          <svg
-            className="w-10 mb-2"
-            fill="white"
-            xmlns="http://www.w3.org/2000/svg"
-            shapeRendering="geometricPrecision"
-            textRendering="geometricPrecision"
-            imageRendering="optimizeQuality"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            viewBox="0 0 512 462.799"
-          >
-            <path
-              fillRule="nonzero"
-              d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"
-            />
-          </svg>
-          <h1 className="text-3xl font-bold mb-4">Create your account</h1>
-          <form className="w-full max-w-sm text-left">
+        <div className="w-[50%] max-md:w-full flex flex-col items-center bg-[#242d35] p-8 rounded-md">
+          <h1 className="text-3xl font-bold mb-4 text-white">سجل حساب جديد</h1>
+          <form className="w-full max-w-sm text-right mx-auto">
             <div className="mb-4">
               <label
-                className="mx-2 block text-dim-100 text-sm font-bold mb-2"
+                className="mx-2 block text-white text-sm font-bold mb-2"
                 htmlFor="name"
               >
-                Name
+                :الأسم
               </label>
               <input
                 onChange={(e) => {
                   setInputName(e.target.value);
                 }}
-                className={`peer w-full bg-transparent outline-none text-base py-3 px-4  rounded-md  border-2 ${
+                className={`peer w-full bg-transparent outline-none text-base py-3 px-4 rounded-md border-2 ${
                   nameAlert === '' ? `border-dim-200` : nameAlert
                 } focus:border-[#4070f4] focus:shadow-md`}
                 id="name"
                 type="text"
-                placeholder="Your Name"
                 value={inputName}
               />
             </div>
             <div className="mb-4">
               <label
-                className="mx-2 block text-dim-100 text-sm font-bold mb-2"
+                className="mx-2 block text-white text-sm font-bold mb-2"
                 htmlFor="accountName"
               >
-                Account Name
+                :اسم الحساب
               </label>
               <input
                 onChange={(e) => {
                   setAccountName(e.target.value);
                 }}
-                className={`peer w-full bg-transparent outline-none text-base py-3 px-4  rounded-md  border-2 ${
+                className={`peer w-full bg-transparent outline-none text-base py-3 px-4 rounded-md border-2 ${
                   accountAlert === '' ? `border-dim-200` : accountAlert
                 } focus:border-[#4070f4] focus:shadow-md`}
                 id="accountName"
                 type="text"
-                placeholder="Your Account Name"
                 value={accountName}
               />
             </div>
             <div className="mb-4">
               <label
-                className="mx-2 block text-dim-100 text-sm font-bold mb-2"
+                className="mx-2 block text-white text-sm font-bold mb-2"
                 htmlFor="email"
               >
-                Email
+                :الايميل
               </label>
               <input
-                className={`peer w-full bg-transparent outline-none text-base py-3 px-4  rounded-md  border-2 ${
+                className={`peer w-full bg-transparent outline-none text-base py-3 px-4 rounded-md border-2 ${
                   emailAlert === '' ? `border-dim-200` : emailAlert
                 } focus:border-[#4070f4] focus:shadow-md`}
                 id="email"
                 type="email"
-                placeholder="Your Email"
                 onChange={(e) => {
                   setInputEmail(e.target.value);
                 }}
@@ -174,28 +137,27 @@ function SignUpPage() {
             </div>
             <div className="mb-4">
               <label
-                className="mx-2 block text-dim-100 text-sm font-bold mb-2"
+                className="mx-2 block text-white text-sm font-bold mb-2"
                 htmlFor="password"
               >
-                Password
+                :كلمة السر
               </label>
               <input
-                className={`peer w-full bg-transparent outline-none text-base py-3 px-4  rounded-md  border-2 ${
+                className={`peer w-full bg-transparent outline-none text-base py-3 px-4 rounded-md border-2 ${
                   passwordAlert === '' ? `border-dim-200` : passwordAlert
                 } focus:border-[#4070f4] focus:shadow-md`}
                 id="password"
                 type="password"
-                placeholder="Your Password"
                 onChange={(e) => {
                   setInputPassword(e.target.value);
                 }}
                 value={inputPassword}
               />
             </div>
-            <p>
-              Do you have an account?{' '}
-              <Link to={'./login'} className="text-dim-100">
-                Login
+            <p className="text-white">
+              هل لديك حساب؟{' '}
+              <Link to={'./login'} className="text-blue-500">
+              تسجيل الدخول
               </Link>
             </p>
             <div className="flex items-center justify-between">
@@ -206,7 +168,7 @@ function SignUpPage() {
                 }}
                 className="bg-blue-400 w-48 mt-5 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"
               >
-                Sign Up
+                تسجيل جديد
               </button>
             </div>
           </form>
