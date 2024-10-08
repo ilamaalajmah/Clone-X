@@ -87,7 +87,6 @@ function LoginPage() {
                 } focus:border-[#4070f4] focus:shadow-md`}
                 id="email"
                 type="email"
-                placeholder="بريدك الإلكتروني"
                 onChange={(e) => {
                   setInputEmail(e.target.value);
                 }}
@@ -107,7 +106,6 @@ function LoginPage() {
                 } focus:border-[#4070f4] focus:shadow-md`}
                 id="password"
                 type="password"
-                placeholder="كلمة السر"
                 onChange={(e) => {
                   setInputPassword(e.target.value);
                 }}
